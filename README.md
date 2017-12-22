@@ -1,6 +1,78 @@
 # 🔥 Head Hot 🔥 [PHP]
 แชร์ Code ที่ทำให้หัวร้อน
 
+#### ไม่เอาๆ อย่าเขียน code ซ้ำ
+```php
+// bad
+function A($number){
+ $class = 'A';
+ if ($number < 80) {
+  $class = 'B';
+ } elseif ($number < 60) {
+  $class = 'C';
+ } elseif ($number < 40) {
+  $class = 'D';
+ } elseif ($number < 20) {
+  $class = 'F';
+ }
+ 
+ if ($class == 'A') {
+  return 'Good';
+ }
+ return 'Bad';
+}
+
+function B($number){
+ $class = 'A';
+ if ($number < 80) {
+  $class = 'B';
+ } elseif ($number < 60) {
+  $class = 'C';
+ } elseif ($number < 40) {
+  $class = 'D';
+ } elseif ($number < 20) {
+  $class = 'F';
+ }
+ 
+ if ($class == 'F') {
+  return 'Good bye!!';
+ }
+ return 'OK!!';
+}
+
+// good
+function class_($number){
+ $class = 'A';
+ if ($number < 80) {
+  $class = 'B';
+ } elseif ($number < 60) {
+  $class = 'C';
+ } elseif ($number < 40) {
+  $class = 'D';
+ } elseif ($number < 20) {
+  $class = 'F';
+ }
+ return $class;
+}
+
+function A($number){
+ $class = class_($number);
+ if ($class == 'A') {
+  return 'Good';
+ }
+ return 'Bad';
+}
+
+function B($number){
+ $class = class_($number);
+ if ($class == 'F') {
+  return 'Good bye!!';
+ }
+ return 'OK!!';
+}
+
+```
+#### 1 Line.
 ```php
 // Bad
 if (isset($X)) { 
